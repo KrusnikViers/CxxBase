@@ -1,5 +1,7 @@
-# Prerequisites
-*.d
+# IDE/OS files and build directories
+build/
+.vscode/
+.DS_Store
 
 # Compiled Object files
 *.slo
@@ -15,10 +17,6 @@
 *.so
 *.dylib
 *.dll
-
-# Fortran module files
-*.mod
-*.smod
 
 # Compiled Static libraries
 *.lai
