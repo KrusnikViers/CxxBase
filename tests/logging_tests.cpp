@@ -5,8 +5,6 @@
 
 #include "cxxbase.h"
 
-INITIALIZE_EASYLOGGINGPP
-
 TEST(LoggingTest, TestLoggingBasic) {
   const std::string kLogFileName = "cxxbase_test_log.txt";
 

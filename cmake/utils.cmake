@@ -25,14 +25,25 @@ macro( cxxbase_strict_compile TARGET )
         # -Wall: Enable all warnings.
         # -Wextra: Additional warnings for GCC.
         # -Werror: Treat warnings as errors.
-        message( STATUS "Using GCC or *Clang compiler for ${TARGET}" )
+        message( STATUS "Using GCC or *Clang compiler (strict) for ${TARGET}" )
         target_compile_options( ${TARGET} PRIVATE -Wall -Wextra -Werror )
     elseif(MSVC)
         # -W3: Enable all warnings except for informational.
         # -WX: Treat warnings as errors.
-        message( STATUS "Using Visual C++ compiler for ${NAME}" )
-        target_compile_options( ${NAME} PRIVATE -W3 -WX )
+        message( STATUS "Using Visual C++ compiler (strict) for ${TARGET}" )
+        target_compile_options( ${TARGET} PRIVATE -W3 -WX )
     else()
         message( WARNING "Unknown compiler! No compilation flags set from cxxbase.")
+    endif()
+endmacro()
+
+# Set compilation flags to suppress everything, that could be ignored.
+macro( cxxbase_silent_compile TARGET )
+    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+        message( STATUS "Using GCC or *Clang compiler (silent) for ${TARGET}" )
+        target_compile_options( ${TARGET} PRIVATE -w )
+    elseif(MSVC)
+        message( STATUS "Using Visual C++ compiler (silent) for ${TARGET}" )
+        target_compile_options( ${TARGET} PRIVATE -W0 )
     endif()
 endmacro()
