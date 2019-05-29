@@ -6,6 +6,7 @@ set(HEADERS
 )
 
 set(SOURCES
+    cxxbase.cpp
     easylogging/src/easylogging++.cc
 )
 
