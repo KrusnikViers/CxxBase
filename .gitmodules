@@ -1,6 +1,6 @@
 [submodule "tests/gtest"]
 	path = tests/gtest
-	url = git@github.com:google/googletest.git
+	url = git://github.com/google/googletest.git
 [submodule "src/easylogging"]
 	path = src/easylogging
-	url = git@github.com:KrusnikViers/easyloggingpp.git
+	url = git://github.com/KrusnikViers/easyloggingpp.git
